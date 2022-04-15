@@ -49,9 +49,6 @@ Default config held in the container is pulled from the [bitcoin github repo](ht
 
 # Run
 
-Run docker image by creating two directories `./data` and `./config` to
-store block data and config outside the container.
-
 ```bash
 docker run \
   -d \
@@ -63,6 +60,21 @@ docker run \
 ```
 
 block chain and wallet data is stored in the container `/block-data` directory.
+
+Map volumes over the `/block-data` and `/config` container directories to persist
+block/wallet data and provide custom config files.
+
+```bash
+docker run \
+  -d \
+  --rm \
+  --log-opt max-size=5m \
+  --log-opt max-file=5 \
+  --name btc-node \
+  -v $(pwd)/data:/block-data \
+  -v $(pwd)/config:/config \
+  anax32/bitcoind
+```
 
 ## Environment variable configuration
 
