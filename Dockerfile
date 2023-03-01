@@ -48,6 +48,10 @@ RUN apt-get install -qy --no-install-recommends \
 RUN apt-get install -qy --no-install-recommends \
               libzmq3-dev
 
+# wallet dependencies
+RUN apt-get install -qy --no-install-recommends \
+              libsqlite3-dev
+
 # gui dependencies
 #RUN apt-get install -y --no-install-recommends \
 #              libqrencode-dev \
@@ -85,6 +89,8 @@ RUN ./contrib/install_db4.sh $(pwd) && \
         CXXFLAGS="-O2 -I/usr/local/BerkeleyDB.4.8/include" \
         LDFLAGS="-L/usr/local/BerkeleyDB.4.8/lib" \
         --without-gui
+#        --disable-wallet \
+
 
 RUN make && make install
 
