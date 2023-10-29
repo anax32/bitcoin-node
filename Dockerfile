@@ -109,7 +109,7 @@ RUN apt-get update && \
               libboost-filesystem$BOOST_VERSION$BOOST_RELEASE_SUFFIX \
               libboost-thread$BOOST_VERSION$BOOST_RELEASE_SUFFIX \
               libboost-chrono$BOOST_VERSION$BOOST_RELEASE_SUFFIX \
-              libssl1.1 \
+              libssl3 \
               libevent-pthreads-$LIBEVENT_VERSION \
               libevent-$LIBEVENT_VERSION \
               libzmq5 \
